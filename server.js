@@ -38,10 +38,8 @@ app.get('/', (req, res) => {
 
 app.post('/signin', (req, res) => {
     bcrypt.compare("apples", '$2b$10$9FD2/cEUaw4981qWoXLiuOyAzlCoRgF9lyGdt9itT1DsoInZt3WDa').then(function(result) {
-        console.log('first guess', result);
     });
     bcrypt.compare("veggies", '$2b$10$9FD2/cEUaw4981qWoXLiuOyAzlCoRgF9lyGdt9itT1DsoInZt3WDa').then(function(result) {
-        console.log('second guess', result);
     });
 
     if(req.body.email === database.users[0].email && req.body.password === database.users[0].password) {
@@ -60,7 +58,6 @@ app.post('/register', (req, res) => {
         id: '125',
         name: name,
         email: email,
-        password: password,
         entries: 0,
         joined: new Date()
     })
