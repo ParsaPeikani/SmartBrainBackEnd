@@ -37,13 +37,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/signin', (req, res) => {
-    bcrypt.compare("apples", '$2b$10$9FD2/cEUaw4981qWoXLiuOyAzlCoRgF9lyGdt9itT1DsoInZt3WDa').then(function(result) {
-    });
-    bcrypt.compare("veggies", '$2b$10$9FD2/cEUaw4981qWoXLiuOyAzlCoRgF9lyGdt9itT1DsoInZt3WDa').then(function(result) {
-    });
-
     if(req.body.email === database.users[0].email && req.body.password === database.users[0].password) {
-        res.json('success');
+        res.json(database.users[0]);
     } else {
         res.status(400).json('error logging in');
     }
@@ -66,7 +61,7 @@ app.post('/register', (req, res) => {
 
 app.get('/profile/:id', (req, res) => {
     const { id } = req.params;
-    const found = false;
+    let found = false;
     database.users.forEach(user => {
         if (user.id === id) {
             found = true;
@@ -80,10 +75,10 @@ app.get('/profile/:id', (req, res) => {
 
 app.put('/image', (req, res) => {
     const { id } = req.body;
-    const found = false;
+    let found = false;
     database.users.forEach(user => {
         if (user.id === id) {
-            let found = true;
+            found = true;
             user.entries++;
             return res.json(user.entries);
         } 
