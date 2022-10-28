@@ -3,10 +3,23 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const cors = require('cors');
+const knex = require('knex');
+
+const postgres = knex({
+    client: 'pg',
+    connection: {
+      host : '127.0.0.1',
+      port : 5432,
+      user : 'postgres',
+      password : 'Ali2002:',
+      database : 'SmartBrain'
+    }
+  });
+
+console.log(postgres.select('*').from('users'));
+
 
 const app = express();
-
-
 
 const database = {
     users: [
