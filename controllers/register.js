@@ -1,4 +1,4 @@
-const handleRegister = (req, res, db, bcrypt, saltRounds) => {
+const handleRegister = (db, bcrypt, saltRounds) => (req, res) => {
     const { email, name, password } = req.body;
 
     const salt = bcrypt.genSaltSync(saltRounds);
@@ -30,5 +30,5 @@ const handleRegister = (req, res, db, bcrypt, saltRounds) => {
 }
 
 module.exports = {
-    handleRegister: handleRegister
+    handleRegister
 };
