@@ -4,10 +4,10 @@ const bp = require("body-parser");
 const db = require("knex")({
   client: "pg",
   connection: {
-    host: "127.0.0.1",
-    user: "a12365",
-    password: "",
-    database: "smart-brain",
+    host: "postgresql://postgres:0uKNmNB1KcPEc6C3bwl1@containers-us-west-170.railway.app:6411/railway",
+    // user: "a12365",
+    // password: "",
+    // database: "smart-brain",
   },
 });
 const bcrypt = require("bcryptjs");
