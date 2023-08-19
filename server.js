@@ -4,10 +4,10 @@ const bp = require("body-parser");
 const db = require("knex")({
   client: "pg",
   connection: {
-    host: "containers-us-west-124.railway.app",
-    port: "6847",
+    host: "containers-us-west-179.railway.app",
+    port: "7853",
     user: "postgres",
-    password: "gl4TZWhAFy3RkfQrkPXr",
+    password: "07OKrnOkMmljMXs6oWFq",
     database: "railway",
   },
 });
